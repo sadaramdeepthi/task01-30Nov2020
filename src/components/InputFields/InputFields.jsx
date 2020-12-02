@@ -7,15 +7,12 @@ const InputFields = () => {
   const [movieRating, setmovieRating] = useState("");
   const [movieList, setmovieList] = useState([]);
 
-  const onButtonClick = (e) => {
-    e.preventDefault();
-
-    setmovieList(
-      movieList.concat({
-        movieName: movieName,
-        movieRating: movieRating,
-      })
-    );
+  const onButtonClick = () => {
+    const finalMovieList = movieList.concat({
+      movieName: movieName,
+      movieRating: movieRating,
+    });
+    setmovieList(finalMovieList);
   };
 
   return (
@@ -25,7 +22,6 @@ const InputFields = () => {
           <Form.Label>Movie Name</Form.Label>
           <Form.Control
             type="text"
-            id="movieName"
             name="movieName"
             placeholder="Enter movie name"
             onChange={(e) => setmovieName(e.target.value)}
@@ -35,19 +31,19 @@ const InputFields = () => {
           <Form.Label>Movie Rating</Form.Label>
           <Form.Control
             type="number"
-            id="movieRating"
             name="movieRating"
             placeholder="Enter movie rating"
             onChange={(e) => setmovieRating(e.target.value)}
             min="1"
             max="10"
           />
+
           <Form.Text className="text-muted">
             Enter the rating maximum out of 10
           </Form.Text>
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={onButtonClick} block>
+        <Button variant="primary" type="button" onClick={onButtonClick} block>
           Submit
         </Button>
       </Form>
