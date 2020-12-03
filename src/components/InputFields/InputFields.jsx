@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../style/InputFields.scss";
+import _ from "lodash";
 import { Button, Form, Table } from "react-bootstrap";
 
 const InputFields = () => {
@@ -8,7 +9,7 @@ const InputFields = () => {
   const [movieList, setmovieList] = useState([]);
 
   const onButtonClick = () => {
-    const finalMovieList = movieList.concat({
+    const finalMovieList = _.concat(movieList, {
       movieName: movieName,
       movieRating: movieRating,
     });
