@@ -73,7 +73,7 @@ const InputFields = () => {
               </tr>
               {movieList.map((movie, i) => {
                 return (
-                  <tr key={i}>
+                  <tr key={i} className="tr-wrapper">
                     <td>{i + 1}.</td>
                     <td>{movie.movieName}</td>
                     <td>{movie.movieRating}</td>
